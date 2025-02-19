@@ -15,7 +15,6 @@ const setUser = async (req: Request, res: Response): Promise<void> => {
     }
     res.status(200).json({ userId: user.id });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Erro ao cadastrar usuário!" });
   }
 };
@@ -23,9 +22,8 @@ const setUser = async (req: Request, res: Response): Promise<void> => {
 const getUsers = async (req: Request, res: Response): Promise<void> => {
   try {
     const users = await prisma.user.findMany();
-    res.json(users);
+    res.status(200).json(users);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Erro ao exibir usuarios!" });
   }
 };

@@ -25,7 +25,6 @@ const setFavorites = async (req: Request, res: Response): Promise<void> => {
       res.status(201).json(favorite);
     }
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Erro ao adicionar favorito!" });
   }
 };
@@ -52,7 +51,6 @@ const removeFavorite = async (req: Request, res: Response): Promise<void> => {
       res.status(404).json({ message: "Favorito não encontrado!" });
     }
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Erro ao remover favorito!" });
   }
 };
@@ -67,7 +65,6 @@ const getFavorites = async (req: Request, res: Response): Promise<void> => {
 
     res.status(200).json(favorites);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Erro ao buscar favoritos!" });
   }
 };

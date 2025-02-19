@@ -29,7 +29,6 @@ const setWeather = async (req: Request, res: Response): Promise<void> => {
 
     res.status(201).json(newWeather);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Erro ao adicionar condição climática!" });
   }
 };
@@ -39,7 +38,6 @@ const getWeathers = async (req: Request, res: Response): Promise<void> => {
     const weathers = await prisma.weather.findMany();
     res.status(200).json(weathers);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ message: "Erro ao buscar condições climáticas!" });
   }
 };
